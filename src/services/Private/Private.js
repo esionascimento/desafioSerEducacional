@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import { verifyJWT } from '../../util/verifyLogin';
+import auth from '../../util/verifyLogin';
 
-const RoutesPrivate = ({ component: Component, ...rest }) => {
-  const isAuthenticated = verifyJWT();
+function RoutesPrivate ({ component: Component, ...rest }) {
+  const [fact, setFact] = useState(false);
+
+  useEffect(async () => {
+    const data = await auth();
+    if (data){
+      setFact(true);
+    }
+  }, []);
   
   return (
     <Route
       {...rest}
-      render={(props) => isAuthenticated
+      render={(props) => fact
         ? <Component {...rest} />
-        : <Redirect to={{ pathname: "/", state: { from: props.location } } }/>
+        : <Redirect to={{ pathname: "/not-found", state: { from: props.location } } }/>
       }
     />
   )

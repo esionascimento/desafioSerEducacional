@@ -5,7 +5,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 
 import RoutesPrivate from './services/Private/Private';
-import { LoginAuth } from './services/Private/LoginAuth';
+import LoginAuth from './services/Private/LoginAuth';
 
 import Home from './pages/Home/index.js'
 import Cadastro from './components/cadastro'
@@ -18,7 +18,7 @@ const App = () => {
       <Provider store={store}>
           <Switch>
             <LoginAuth exact path="/" component={Home} />
-            <RoutesPrivate exact path="/dashboard" component={() => <Dashboard />} />
+            <RoutesPrivate exact path="/dashboard" component={Dashboard} />
             <Route exact path="/cadastro" component={() => <Cadastro />} />
             <Route exact path="/not-found" component={() => <NotFound />} />
           </Switch>

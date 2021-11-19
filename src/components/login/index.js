@@ -25,9 +25,11 @@ function componentLogin() {
     event.preventDefault();
     try {
       const { data: { token } } = await login({ email, password });
-      localStorage.setItem('token', JSON.stringify(token));
+      console.log('email, password :', email, password);
+      localStorage.setItem('token', token);
       window.location.pathname = '/dashboard';
     } catch (err) {
+      console.log("Erro login");
       setValidLogin(err);
     }
   }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const newCadastro = (user) => {
-  axios.post('https://desafio-ser-educacional-back.herokuapp.com/user', user)
+  axios.post('http://localhost:3001/user', user)
   .then((res) => {
     console.log(res.data);
   })
@@ -9,10 +9,12 @@ export const newCadastro = (user) => {
 };
 
 const APIPOST = axios.create({
-  baseURL: 'https://desafio-ser-educacional-back.herokuapp.com',
+  baseURL: 'http://localhost:3001',
   headers: {
     'Content-type': 'application/json',
   },
 });
+
+export const authenticate = (token) => APIPOST.post('/authorization', token);
 
 export const login = (user) => APIPOST.post('/login', user);
