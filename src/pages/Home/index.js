@@ -7,7 +7,6 @@ import './Home.css'
 function Home() {
   return (
     <>
-    
       <div className="box">
         <div className="container">
           <div className="left">
