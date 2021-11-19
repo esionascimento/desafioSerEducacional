@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  isAuthenticated: localStorage.getItem('token')
+  isAuthenticated: false,
 };
 
 export default function (state = INITIAL_STATE, action) {
