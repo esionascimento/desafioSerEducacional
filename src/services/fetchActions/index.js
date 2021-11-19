@@ -3,7 +3,6 @@ import axios from 'axios';
 export const newCadastro = (user) => {
   axios.post('https://desafio-ser-educacional-back.herokuapp.com/user', user)
   .then((res) => {
-    console.log('res :', res);
     console.log(res.data);
   })
   .catch(console.log);

@@ -11,7 +11,7 @@ const RoutesPrivate = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) => isAuthenticated
         ? <Component {...rest} />
-        : <Redirect to={{ pathname: "/not-found", state: { from: props.location } } }/>
+        : <Redirect to={{ pathname: "/", state: { from: props.location } } }/>
       }
     />
   )

@@ -18,7 +18,7 @@ export const verifyJWT = () => {
     const { isExpired } = useJwt(token);
     if (!isExpired) {
       dispatch(Login());
-      isAuthenticated = true;
+      return isAuthenticated = true;
     }
   }
   return isAuthenticated;

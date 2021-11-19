@@ -25,7 +25,6 @@ function componentLogin() {
     event.preventDefault();
     try {
       const { data: { token } } = await login({ email, password });
-      console.log('userasdf :', token);
       localStorage.setItem('token', JSON.stringify(token));
       window.location.pathname = '/dashboard';
     } catch (err) {
