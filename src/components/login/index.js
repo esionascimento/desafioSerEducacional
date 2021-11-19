@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import { EmailLogin } from '../../store/login/Login.actions';
-import { authLogin } from '../../services/fetchActions';
+import { login } from '../../services/fetchActions';
 
 import './Login.css';
 
@@ -12,9 +9,7 @@ function initialState() {
 }
 
 function componentLogin() {
-  const dispatch = useDispatch();
   const [valuesLogin, setValues] = useState(initialState);
-  
   const [validLogin, setValidLogin] = useState(false);
   const { email, password } = valuesLogin;
 
@@ -28,11 +23,14 @@ function componentLogin() {
   
   async function onSubmit(event) {
     event.preventDefault();
-    dispatch(EmailLogin(email));
-    dispatch(authLogin(valuesLogin));
-
-    setValues(initialState);
-    setValidLogin(true);
+    try {
+      const { data: { token } } = await login({ email, password });
+      console.log('userasdf :', token);
+      localStorage.setItem('token', JSON.stringify(token));
+      window.location.pathname = '/dashboard';
+    } catch (err) {
+      setValidLogin(err);
+    }
   }
 
   return (
