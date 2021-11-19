@@ -1,10 +1,20 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
+import store from './store/store';
+import { Provider } from 'react-redux';
+
+import Home from './pages/Home'
+
+const App = () => {
   return (
-    <div className="App">
-      Desafio Ser Educacional
-    </div>
+    <BrowserRouter>
+      <Provider store={store}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
