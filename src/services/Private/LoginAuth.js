@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { verifyJWT } from '../../util/verifyLogin';
 
 export const LoginAuth = ({ component: Component, ...rest }) => {
-  const { isAuthenticated } = useSelector(state => state.auth);
+  const isAuthenticated = verifyJWT();
+  
   return (
     <Route
       {...rest}
@@ -18,5 +19,5 @@ export const LoginAuth = ({ component: Component, ...rest }) => {
 
 LoginAuth.propTypes = {
   component: PropTypes.func.isRequired,
-  location: PropTypes.func,
+  location: PropTypes.object,
 }

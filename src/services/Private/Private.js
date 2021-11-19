@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { verifyJWT } from '../../util/verifyLogin';
 
 const RoutesPrivate = ({ component: Component, ...rest }) => {
-  const { isAuthenticated } = useSelector(state => state.auth);
+  const isAuthenticated = verifyJWT();
   
   return (
     <Route
@@ -19,7 +19,7 @@ const RoutesPrivate = ({ component: Component, ...rest }) => {
 
 RoutesPrivate.propTypes = {
   component: PropTypes.func.isRequired,
-  location: PropTypes.func,
+  location: PropTypes.object,
 }
 
 export default RoutesPrivate;
