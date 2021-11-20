@@ -9,14 +9,14 @@ function NomesContatos() {
   
   useEffect(() => {
     dashboard().then((aux) => {
-      const salve = aux.data[0].data;
-      salve.map((data, index) =>{
-        console.log('contato-detalhes :', data);
-        if (parseInt(contato) === parseInt(index)) {
-          console.log('datada :', contato);
-          setData(data);
-        }
-      })
+      if (aux.data.length > 0) {
+        const salve = aux.data[0].data;
+        salve.map((data, index) =>{
+          if (parseInt(contato) === parseInt(index)) {
+            setData(data);
+          }
+        })
+      }
     });
   },[contato]);
 

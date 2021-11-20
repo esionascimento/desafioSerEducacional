@@ -11,8 +11,10 @@ function NomesContatos() {
 
   useEffect(() => {
     dashboard().then((aux) => {
-      const salve = aux.data[0].data;
-      setData(salve);
+      if (aux.data > 0) {
+        const salve = aux.data[0].data;
+        setData(salve);
+      }
     });
   },[])
 
@@ -22,7 +24,7 @@ function NomesContatos() {
 
   return (
     <div>
-      {data
+      {data.length > 0
         ? data.map((or, index) => (
             <div key={ or.id }>
               <input
@@ -34,7 +36,7 @@ function NomesContatos() {
               />  
             </div>
         ))
-        : <p>erro</p>
+        : <p>Nenhum contato</p>
       }
     </div>
   );
