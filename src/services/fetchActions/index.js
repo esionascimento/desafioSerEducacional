@@ -18,3 +18,5 @@ const APIPOST = axios.create({
 export const authenticate = (token) => APIPOST.post('/authorization', token);
 
 export const login = (user) => APIPOST.post('/login', user);
+
+export const dashboard = () => APIPOST.get('/dashboard');
