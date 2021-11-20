@@ -1,4 +1,6 @@
 import React from 'react';
+import NomesContatos from '../../components/NomesContatos';
+import DetalhesContatos from '../../components/DetalhesContatos';
 
 import './Dashboard.css';
 
@@ -20,12 +22,14 @@ function Dashboard() {
       </header>
       <div className="body">
         <div className="esquerda">
-          <div>Esquerda</div>
-          <div></div>
+          <div>
+            <NomesContatos />
+          </div>
         </div>
         <div className="direita">
-          <div>Direita</div>
-          <div></div>
+          <div>
+            <DetalhesContatos />
+          </div>
         </div>
       </div>
     </>
