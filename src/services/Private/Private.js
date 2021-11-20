@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import auth from '../../util/verifyLogin';
+import { authenticate } from '../../services/fetchActions';
 
 function RoutesPrivate ({ component: Component, ...rest }) {
-  const [fact, setFact] = useState(false);
-
-  useEffect(async () => {
-    const data = await auth();
-    if (data){
+  const [fact, setFact] = useState(true);
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    authenticate({token}).then((aux) => {
+      console.log('aux :', aux);
       setFact(true);
-    }
+    }).catch(() => setFact(false));
   }, []);
   
   return (
