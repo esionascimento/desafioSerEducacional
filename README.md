@@ -59,7 +59,10 @@ Deploy para auxiliar
   * https://desafio-ser-educacional-front.vercel.app/
   
 # Variaveis
-1. Caminho `src/services/fetchActions`
+Caminho `src/services/fetchActions`
+1. Deploy
    * Variavel `BASE_URL` se for usar como referencia o back-end `https://github.com/esionascimento/desafioSerEducacionalBack` usar o valor `https://desafio-ser-educacional-back.herokuapp.com`
+2. Teste local
+   * Front-end na porta 3000 e back-end na porta 3001, usar `BASE_URL` com valor `http://localhost:3001`
 
 README baseado nos REDMEs da trybe
