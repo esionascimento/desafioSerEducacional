@@ -4,3 +4,10 @@ export function DashboardSelectContato (contato) {
     payload: [ contato ]
   }
 }
+
+export function SalveFormContato (contato) {
+  return {
+    type: 'SALVE_FORM',
+    payload: contato
+  }
+}
