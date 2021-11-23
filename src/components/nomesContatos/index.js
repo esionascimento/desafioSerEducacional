@@ -10,7 +10,7 @@ function NomesContatos() {
 
   useEffect(() => {
     dashboard().then((aux) => {
-      if (aux.data > 0) {
+      if (aux.data) {
         const salve = aux.data[0].data;
         setData(salve);
       }
