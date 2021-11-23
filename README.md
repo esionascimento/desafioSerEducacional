@@ -7,6 +7,7 @@
 - [Regras de negócio](#regras-de-negócio)
 - [Rotas](#rotas)
 - [Deploy](#deploy)
+- [Variaveis](#variaveis)
 
 
 # O que deverá ser desenvolvido
@@ -56,5 +57,9 @@ Rotas `/`,`/dashboard`,`/not-found`
 Deploy para auxiliar
 1. Link sem login, podendo acessar as rotas sem autenticação
   * https://desafio-ser-educacional-front.vercel.app/
+  
+# Variaveis
+1. Caminho `src/services/fetchActions`
+   * Variavel `BASE_URL` se for usar como referencia o back-end `https://github.com/esionascimento/desafioSerEducacionalBack` usar o valor `https://desafio-ser-educacional-back.herokuapp.com`
 
 README baseado nos REDMEs da trybe
