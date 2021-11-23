@@ -1,4 +1,9 @@
 .formContato {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  border-color: silver;
 }
