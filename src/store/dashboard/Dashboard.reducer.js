@@ -16,7 +16,9 @@ export default function (state = INITIAL_STATE, action) {
       }
     case 'SALVE_FORM':
       return {
-        nome: action.payload.name, sobrenome: action.payload.sobrenome,
+        nome: action.payload.nome, sobrenome: action.payload.sobrenome,
+        telefone: action.payload.telefone, dataNascimento: action.payload.dataNascimento,
+        endereco: action.payload.endereco, email: action.payload.email
       }
     default:
       return state;
