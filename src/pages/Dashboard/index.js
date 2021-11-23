@@ -1,14 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
 
 import NomesContatos from '../../components/nomesContatos';
 import DetalhesContatos from '../../components/detalhesContatos';
 import { FormContato } from '../../components/criarContato';
+import { dashboardCreate } from '../../services/fetchActions';
 
 import './Dashboard.css';
 
 function Dashboard() {
+  const reduxContato = useSelector((state) => state.dashboard);
+
   const [visible, setVisible] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
   const showModal = () => {
@@ -20,6 +24,7 @@ function Dashboard() {
     setTimeout(() => {
       setVisible(false);
       setConfirmLoading(false);
+      dashboardCreate(reduxContato);
     }, 2000);
   };
 
