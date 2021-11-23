@@ -12,10 +12,12 @@ export default function (state = INITIAL_STATE, action) {
   switch(action.type) {
     case 'CONTATO_SELECIONADO':
       return {
-        contato: action.payload[0]
+        ...state,
+        contato: action.payload
       }
     case 'SALVE_FORM':
       return {
+        ...state,
         nome: action.payload.nome, sobrenome: action.payload.sobrenome,
         telefone: action.payload.telefone, dataNascimento: action.payload.dataNascimento,
         endereco: action.payload.endereco, email: action.payload.email
