@@ -1,6 +1,6 @@
 import React from 'react';
-import NomesContatos from '../../components/NomesContatos';
-import DetalhesContatos from '../../components/DetalhesContatos';
+import NomesContatos from '../../components/nomesContatos';
+import DetalhesContatos from '../../components/detalhesContatos';
 
 import './Dashboard.css';
 
@@ -10,14 +10,12 @@ function Dashboard() {
     <>
       <header className="app-header">
         <ul className="div">
-          <li>Home</li>
-          <li>Sobre</li>
-          <li>Contato</li>
+          <li>Novo contato</li>
         </ul>
         <ul className="div">
           <li>Saiba Mais</li>
           <li>Novidades</li>
-          <li>Sair da Conta</li>
+          <li>Sair</li>
         </ul>
       </header>
       <div className="body">

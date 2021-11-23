@@ -7,7 +7,6 @@ import { DashboardSelectContato } from '../../store/dashboard/Dashboard.actions'
 function NomesContatos() {
   const dispatch = useDispatch();
   const [ data, setData ] = useState([]);
-  console.log('data :', data);
 
   useEffect(() => {
     dashboard().then((aux) => {

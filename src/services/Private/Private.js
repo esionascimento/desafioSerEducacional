@@ -8,8 +8,7 @@ function RoutesPrivate ({ component: Component, ...rest }) {
   
   useEffect(() => {
     const token = localStorage.getItem('token');
-    authenticate({token}).then((aux) => {
-      console.log('aux :', aux);
+    authenticate({token}).then(() => {
       setFact(true);
     }).catch(() => setFact(false));
   }, []);

@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-import store from './store';
 import { Provider } from 'react-redux';
 
+import store from './store';
+
 import RoutesPrivate from './services/Private/Private';
-/* import LoginAuth from './services/Private/LoginAuth'; */
 
 import Home from './pages/Home/index.js'
 import Cadastro from './components/cadastro'
