@@ -1,13 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Modal } from 'antd';
+import { Modal, message } from 'antd';
 import 'antd/dist/antd.css';
 
 import NomesContatos from '../../components/nomesContatos';
 import DetalhesContatos from '../../components/detalhesContatos';
 import { FormContato } from '../../components/criarContato';
 import { dashboardCreate } from '../../services/fetchActions';
+import { Reload } from '../../components/reload';
 
 import './Dashboard.css';
 
@@ -27,9 +28,14 @@ function Dashboard() {
     setTimeout(() => {
       setVisible(false);
       setConfirmLoading(false);
-      dashboardCreate(reduxContato);
-      window.location.reload();
-    }, 2000);
+      dashboardCreate(reduxContato)
+      .then(() =>{
+        message.success('Contato Salvo');
+      }).catch(() => {
+        message.error('Erro: salvar contato');
+      });
+      Reload();
+    }, 1000);
   };
 
   const handleCancel = () => {

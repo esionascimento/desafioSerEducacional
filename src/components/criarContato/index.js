@@ -51,7 +51,7 @@ export function FormContato() {
           <input type="email" name="email" onChange={onChange}></input>
         </div>
       </div>
-      <p>O modal será fechado após dois segundos</p>
+      <p>O modal será fechado após um segundos</p>
     </>
   );
 }

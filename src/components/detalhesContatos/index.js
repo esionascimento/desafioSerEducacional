@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { dashboard } from '../../services/fetchActions';
+import { dashboard, dashboardDelete } from '../../services/fetchActions';
 import { useSelector } from 'react-redux';
+import { message } from 'antd';
+import { Reload } from '../reload';
+
+import './detalhesContatos.css';
 
 function NomesContatos() {
   const { contato } = useSelector(state => state.dashboard);
@@ -19,10 +23,22 @@ function NomesContatos() {
     });
   },[contato]);
 
+  const RemoverContato = async () =>  {
+    const result = await dashboardDelete(contato);
+    if (!result)
+      message.success('Contato removido com sucesso.');
+    else
+      message.error('Erro: remover contato');
+    Reload();
+  }
+
   return (
     <div>
       {data
         ? <div>
+            <div className="dcButton">
+              <button onClick={() => RemoverContato()}>Remover Contato</button>
+            </div>
             <p>Nome: {data.nome}</p>
             <p>Sobrenome: {data.sobrenome}</p>
             <p>Telefone: {data.telefone}</p>
