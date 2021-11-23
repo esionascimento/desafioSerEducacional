@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { dashboard } from '../../services/fetchActions';
 import { useSelector } from 'react-redux';
-/* import OrderContatos from './OrderContatos'; */
 
 function NomesContatos() {
   const { contato } = useSelector(state => state.dashboard);
@@ -12,7 +11,7 @@ function NomesContatos() {
       if (aux.data.length > 0) {
         const salve = aux.data[0].data;
         salve.map((data, index) =>{
-          if (parseInt(contato) === parseInt(index)) {
+          if (contato === salve[index].nome) {
             setData(data);
           }
         })

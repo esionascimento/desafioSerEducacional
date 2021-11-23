@@ -6,9 +6,7 @@ async function auth() {
     const token = localStorage.getItem('token');
     if (token) {
       data = await authenticate({ token });
-      console.log('data :', data);
       if (data.data.auth) {
-        console.log('True: ');
         return true;
       }
     }

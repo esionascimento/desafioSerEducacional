@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { dashboard } from '../../services/fetchActions';
 import { useDispatch } from 'react-redux';
 import { DashboardSelectContato } from '../../store/dashboard/Dashboard.actions';
-/* import OrderContatos from './OrderContatos'; */
 
 function NomesContatos() {
   const dispatch = useDispatch();
@@ -24,13 +23,13 @@ function NomesContatos() {
   return (
     <div>
       {data.length > 0
-        ? data.map((or, index) => (
+        ? data.map((or) => (
             <div key={ or.id }>
               <input
                 type="button"
                 className="inputContatos"
                 onClick={onClick}
-                name={index}
+                name={`${or.nome}`}
                 value={`${or.nome} ${or.sobrenome}`}
               />  
             </div>
