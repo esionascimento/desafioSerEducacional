@@ -26,30 +26,32 @@ export function FormContato() {
   return (
     <>
       <div className="formContato">
-        <div>
-          <label>Nome: </label>
-          <input type="text" name="nome" onChange={onChange}></input>
-        </div>
-        <div>
-          <label>Sobrenome: </label>
-          <input type="text" name="sobrenome" onChange={onChange}></input>
-        </div>
-        <div>
-          <label>Telefone: </label>
-          <input type="number" name="telefone" onChange={onChange}></input>
-        </div>
-        <div>
-          <label>Data de nascimento: </label>
-          <input type="date" name="dataNascimento" onChange={onChange}></input>
-        </div>
-        <div>
-          <label>Endereço: </label>
-          <input type="email" name="endereco" onChange={onChange}></input>
-        </div>
-        <div>
-          <label>Email: </label>
-          <input type="email" name="email" onChange={onChange}></input>
-        </div>
+        <form>
+          <div>
+            <label>Nome: </label>
+            <input type="text" name="nome" onChange={onChange} required></input>
+          </div>
+          <div>
+            <label>Sobrenome: </label>
+            <input type="text" name="sobrenome" onChange={onChange}></input>
+          </div>
+          <div>
+            <label>Telefone: </label>
+            <input type="number" name="telefone" onChange={onChange} required></input>
+          </div>
+          <div>
+            <label>Data de nascimento: </label>
+            <input type="date" name="dataNascimento" onChange={onChange}></input>
+          </div>
+          <div>
+            <label>Endereço: </label>
+            <input type="email" name="endereco" onChange={onChange}></input>
+          </div>
+          <div>
+            <label>Email: </label>
+            <input type="email" name="email" onChange={onChange}></input>
+          </div>
+        </form>
       </div>
       <p>O modal será fechado após um segundos</p>
     </>

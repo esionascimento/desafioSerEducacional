@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Modal, message } from 'antd';
 import 'antd/dist/antd.css';
 
+
 import NomesContatos from '../../components/nomesContatos';
 import DetalhesContatos from '../../components/detalhesContatos';
 import { FormContato } from '../../components/criarContato';
