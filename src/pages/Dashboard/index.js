@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
@@ -11,10 +12,12 @@ import { dashboardCreate } from '../../services/fetchActions';
 import './Dashboard.css';
 
 function Dashboard() {
+  const history = useHistory()
   const reduxContato = useSelector((state) => state.dashboard);
-
+  const [redirect, setRedirect] = React.useState(false);
   const [visible, setVisible] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
+
   const showModal = () => {
     setVisible(true);
   };
@@ -33,6 +36,15 @@ function Dashboard() {
     setVisible(false);
   };
 
+  const sair = () => {
+    localStorage.removeItem('token');
+    setRedirect(true);
+  }
+
+  if (redirect) {
+    history.push("/");
+  }
+
   return (
     <>
       <Modal
@@ -50,7 +62,7 @@ function Dashboard() {
           <li onClick={showModal}>Novo contato</li>
         </ul>
         <ul className="div">
-          <li>Sair</li>
+          <li onClick={sair}>Sair</li>
         </ul>
       </header>
       <div className="body">
