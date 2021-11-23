@@ -25,6 +25,7 @@ function Dashboard() {
       setVisible(false);
       setConfirmLoading(false);
       dashboardCreate(reduxContato);
+      window.location.reload();
     }, 2000);
   };
 
